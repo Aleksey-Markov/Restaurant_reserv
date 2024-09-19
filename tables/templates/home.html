@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block block %}
+
+<section class="py-5">
+    <div class="col-md-8 py-5 mx-auto text-center">
+                    <h1 class="text-white">HOME - RESTAURANT</h1>
+                    <p class="text-white">Ресторан домашней кухни</p>
+    </div>
+</section>
+<h3 class="py-2 text-center lead text-white">
+    Мы - ресторан домашней кухни "Home - Restaraunt"<br>
+    У нас очень уютная и приятная домашняя атмосфера<br>
+    А главное, вкусно как ДОМА!!!
+</h3>
+<p class="text-center text-white py-3">
+    На нашем сайте вы можете забронировать столик на удобное для вас время<br>
+    <a href="#" class="btn btn-lg border-black bg-white">Забронировать</a>
+</p>
+<section class="py-5 col-12 text-center">
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="card bg-dark">
+          <div class="card-body">
+            <h5 class="card-title text-white">Контактная информация</h5>
+            <p class="card-text text-dark">Ресепшн: +7-999-123-45-67</p>
+            <p class="card-text text-white">Ресепшн: +7-999-123-45-67</p>
+            <p class="card-text text-dark">Ресепшн: +7-999-123-45-67</p>
+            <p class="card-text text-white">Наш адрес: Ул. Пушкина, дом 2</p>
+            <p class="card-text text-dark">Ресепшн: +7-999-123-45-67</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="card bg-dark">
+          <div class="card-body">
+            <h5 class="card-title text-white">Обратная связь</h5>
+            <form method="post">
+                {% csrf_token %}
+                <input class="form-control mb-2" name="name" placeholder="Ваше имя" />
+                <input class="form-control mb-2" name="email" placeholder="Ваша почта" />
+                <textarea class="form-control mb-2" name="message" placeholder="Текст сообщения"></textarea>
+                <button type="submit" class="btn btn-lg bg-white form-control">Отправить</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
+
+{% endblock %}
