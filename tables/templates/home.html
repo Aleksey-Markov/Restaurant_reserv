@@ -34,10 +34,9 @@
         <div class="card bg-dark">
           <div class="card-body">
             <h5 class="card-title text-white">Обратная связь</h5>
-            <form method="post">
-                {% csrf_token %}
+            <form action="" method="get">
                 <input class="form-control mb-2" name="name" placeholder="Ваше имя" />
-                <input class="form-control mb-2" name="email" placeholder="Ваша почта" />
+                <input type="email" class="form-control mb-2" name="email" placeholder="Ваша почта" />
                 <textarea class="form-control mb-2" name="message" placeholder="Текст сообщения"></textarea>
                 <button type="submit" class="btn btn-lg bg-white form-control">Отправить</button>
             </form>
