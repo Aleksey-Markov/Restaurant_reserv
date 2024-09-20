@@ -6,7 +6,7 @@ from users.models import User
 class UserRegisterForm(UserCreationForm):
     class Meta:
         model = User
-        fields = ('email', 'password1', 'password2')
+        fields = ('email', 'name', 'phone', 'password1', 'password2')
         labels = {
                 'email': 'Почта',
                 'password1': 'Пароль',
@@ -14,6 +14,7 @@ class UserRegisterForm(UserCreationForm):
             }
         help_texts = {
                 'email': 'Введите вашу почту',
+                'name': 'Используется для брони',
                 'password1': 'Введите ваш пароль',
                 'password2': 'Повторите ваш пароль',
             }

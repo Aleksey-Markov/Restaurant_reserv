@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block block %}
+<center>
+  <form class="form-control col-6">
+      <label for="exampleFormControlSelect1">Выберите столик для бронирования</label>
+            <select class="form-control" id="exampleFormControlSelect1">
+              {% for table in object_list %}
+                {% if not table.is_reserved %}
+                  <option>
+                    <{{ table.table_num }}</option>
+                {% endif %}
+              {% endfor %}
+            </select>
+    </div>
+  </form>
+</center>
+{% endblock %}
