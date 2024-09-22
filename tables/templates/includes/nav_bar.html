@@ -11,7 +11,7 @@
                     <ul class="list-unstyled">
                         <li><a href="{% url 'tables:home' %}" class="text-white">Главная</a></li>
                         <li><a href="{% url 'tables:about' %}" class="text-white">О ресторане</a></li>
-                        <li><a href="{% url 'tables:reservation' %}" class="text-white">Бронирование столиков</a></li>
+                        <li><a href="{% url 'tables:list' %}" class="text-white">Бронирование столиков</a></li>
                         {% if user.is_authenticated %}
                         <li><a href="{% url 'users:profile' %}" class="text-white">Личный кабинет</a></li>
                         <li><form action="{% url 'users:logout' %}" method="post">

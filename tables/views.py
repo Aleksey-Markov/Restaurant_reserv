@@ -1,6 +1,7 @@
 from django.urls import reverse_lazy, reverse
 from django.views.generic import ListView, DetailView, TemplateView, CreateView, UpdateView, DeleteView
 from tables.models import Table
+from tables.services import reserve_end
 
 
 class HomePageView(TemplateView):
@@ -13,7 +14,12 @@ class AboutView(TemplateView):
 
 class TableReserve(ListView):
     model = Table
+    queryset = Table.objects.all().order_by('pk')
 
 
-    # def get_object(self, queryset=None):
-    #     return self.request.
+class TableUpdate(UpdateView):
+    reserve_end()
+    model = Table
+    fields = ['time_of_reserve', 'time_end_reserve', 'user_phone', 'user_name']
+    success_url = reverse_lazy('tables:home')
+
