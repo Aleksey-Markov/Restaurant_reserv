@@ -1,7 +1,7 @@
-from django.views.generic import CreateView, UpdateView, DetailView
+from django.views.generic import CreateView, UpdateView
 from users.models import User
 from tables.models import Table
-from django.urls import reverse_lazy, reverse
+from django.urls import reverse_lazy
 from users.forms import UserRegisterForm, UserProfileForm, TableForm
 from django.forms import inlineformset_factory
 
@@ -22,9 +22,13 @@ class ProfileView(UpdateView):
 
     def get_context_data(self, **kwargs):
         context_data = super().get_context_data(**kwargs)
-        TableFormset = inlineformset_factory(User, Table, form=TableForm, extra=1)
+        TableFormset = inlineformset_factory(
+            User, Table, form=TableForm, extra=1
+        )
         if self.request.method == 'POST':
-            context_data['formset'] = TableFormset(self.request.POST, instance=self.object)
+            context_data['formset'] = TableFormset(
+                self.request.POST, instance=self.object
+            )
         else:
             context_data['formset'] = TableFormset(instance=self.object)
         return context_data

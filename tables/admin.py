@@ -9,4 +9,3 @@ class TableAdmin(admin.ModelAdmin):
                     'user_phone', 'is_reserved', 'time_of_reserve',
                     'time_end_reserve'
                     )
-

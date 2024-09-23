@@ -1,5 +1,5 @@
-from django.urls import reverse_lazy, reverse
-from django.views.generic import ListView, DetailView, TemplateView, CreateView, UpdateView, DeleteView
+from django.urls import reverse_lazy
+from django.views.generic import ListView, TemplateView, UpdateView
 from tables.models import Table
 from tables.services import reserve_end
 
@@ -35,5 +35,3 @@ class TableUpdate(UpdateView):
         table.is_reserved = True
         table.save()
         return super().form_valid(form)
-
-
