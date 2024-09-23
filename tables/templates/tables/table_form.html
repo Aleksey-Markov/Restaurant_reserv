@@ -14,9 +14,7 @@
                         {% csrf_token %}
                         {{ form.as_p }}
                         <button type="submit" class="btn btn-success">Забронировать</button>
-                        <form action="page/reserve.html" target="_blank">
-                            <button class="btn btn-warning">Отмена</button>
-                        </form>
+                        <a href="{% url 'tables:list' %}" class="btn btn-warning">Отмена</a>
                     </form>
                 </div>
             </div>

@@ -1,5 +1,6 @@
 from django.contrib.auth.forms import UserChangeForm, UserCreationForm
-
+from django import forms
+from tables.models import Table
 from users.models import User
 
 
@@ -29,3 +30,9 @@ class UserProfileForm(UserChangeForm):
                 'name': 'Имя',
                 'phone': 'Телефон',
             }
+
+
+class TableForm(forms.ModelForm):
+    class Meta:
+        model = Table
+        fields = '__all__'

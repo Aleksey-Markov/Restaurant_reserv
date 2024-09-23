@@ -24,14 +24,16 @@ class TableReserve(ListView):
 class TableUpdate(UpdateView):
     model = Table
     fields = ['time_of_reserve', 'time_end_reserve', 'user_phone', 'user_name']
-    success_url = reverse_lazy('tables:home')
+    success_url = reverse_lazy('tables:list')
 
-    def post(self, request, *args, **kwargs):
-        table = self.get_object()
-        table.client = request.user
-        table.user_phone = request.user.phone
-        table.user_name = request.user.name
+    def form_valid(self, form):
+        table = form.save()
+        user = self.request.user
+        table.client = user
+        table.user_phone = user.phone
+        table.user_name = user.name
         table.is_reserved = True
         table.save()
-        return super().post(request, *args, **kwargs)
+        return super().form_valid(form)
+
 

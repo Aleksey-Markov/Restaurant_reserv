@@ -15,3 +15,7 @@ def reserve_end():
             table.time_of_reserve = None
             table.time_end_reserve = None
             table.save()
+
+
+def get_tables():
+    return Table.objects.filter(user=self.request.user)

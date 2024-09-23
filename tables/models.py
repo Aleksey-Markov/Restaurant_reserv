@@ -7,8 +7,10 @@ class Table(models.Model):
 
     table_num = models.PositiveIntegerField(verbose_name='Номер столика')
     is_reserved = models.BooleanField(default=False, verbose_name='Признак брони')
-    time_of_reserve = models.DateTimeField(verbose_name='Время начала брони', **NULLABLE)
-    time_end_reserve = models.DateTimeField(verbose_name='Время конца брони', **NULLABLE)
+    time_of_reserve = models.DateTimeField(help_text='Введите дату в формате ГГГГ-ММ-ДД ЧЧ:ММ',
+                                           verbose_name='Время начала брони', **NULLABLE)
+    time_end_reserve = models.DateTimeField(help_text='Введите дату в формате ГГГГ-ММ-ДД ЧЧ:ММ',
+                                            verbose_name='Время конца брони', **NULLABLE)
     client = models.ForeignKey(User, on_delete=models.SET_NULL, verbose_name='Держатель брони', **NULLABLE)
     user_phone = models.CharField(max_length=15, verbose_name='Телефон клиента', **NULLABLE)
     user_name = models.CharField(max_length=50, verbose_name='Имя клиента', **NULLABLE)
