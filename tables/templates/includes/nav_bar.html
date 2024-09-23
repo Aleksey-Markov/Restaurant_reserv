@@ -1,0 +1,41 @@
+<header>
+    <div class="collapse bg-black" id="navbarHeader">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8 col-md-7 py-4">
+                    <h4 class="text-white">HOME - RESTAURANT</h4>
+                    <p class="text-muted">Ресторан домашней кухни</p>
+                </div>
+                <div class="col-sm-4 offset-md-1 py-4">
+                    <h4 class="text-white">Навигация</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="{% url 'tables:home' %}" class="text-white">Главная</a></li>
+                        <li><a href="{% url 'tables:about' %}" class="text-white">О ресторане</a></li>
+                        <li><a href="{% url 'tables:list' %}" class="text-white">Бронирование столиков</a></li>
+                        {% if user.is_authenticated %}
+                        <li><a href="{% url 'users:profile' %}" class="text-white">Личный кабинет</a></li>
+                        <li><form action="{% url 'users:logout' %}" method="post">
+                            {% csrf_token %}
+                            <button class="bg-dark text-white border-0" type="submit">Выйти</button>
+                            </form>
+                        </li>
+                        {% else %}
+                        <li><a href="{% url 'users:login' %}" class="text-white">Войти</a></li>
+                        <li><a href="{% url 'users:register' %}" class="text-white">Зарегестрироваться</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="navbar navbar-dark bg-black box-shadow">
+        <div class="container d-flex justify-content-between">
+            <a href="#" class="navbar-brand d-flex align-items-center">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader"
+                    aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </div>
+</header>

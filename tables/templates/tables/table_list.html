@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block block %}
+<center>
+  <form class="form-control col-6">
+      <h3>Выберите столик для бронирования</h3><br>
+      (В списке показаны только столики доступные для бронирования)
+              {% for table in object_list %}
+                {% if not table.is_reserved %}
+                  <div class="list-group">
+                      <a href="{% url 'tables:reserve' table.pk %}" class="list-group-item list-group-item-action" aria-current="true">
+                        Забронировать столик номер: {{ table.table_num }}
+                      </a>
+                  </div>
+                {% endif %}
+              {% endfor %}
+  </form>
+</center>
+{% endblock %}
