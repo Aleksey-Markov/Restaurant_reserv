@@ -31,7 +31,7 @@ class ProfileView(UpdateView):
                 context_data['table'] = table
         context_data['current_user'] = self.request.user
         TableFormset = inlineformset_factory(
-            User, Table, form=TableForm, extra=1
+            User, Table, form=TableForm, extra=0
         )
         if self.request.method == 'POST':
             context_data['formset'] = TableFormset(
