@@ -25,6 +25,11 @@ class ProfileView(UpdateView):
 
     def get_context_data(self, **kwargs):
         context_data = super().get_context_data(**kwargs)
+        tables = Table.objects.filter(client=self.request.user)
+        for table in tables:
+            if table.client:
+                context_data['table'] = table
+        context_data['current_user'] = self.request.user
         TableFormset = inlineformset_factory(
             User, Table, form=TableForm, extra=1
         )

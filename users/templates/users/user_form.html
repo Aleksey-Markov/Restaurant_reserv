@@ -26,14 +26,16 @@
                     </h3>
                 </div>
                 <div class="card-body">
-                    <form method="post" enctype="multipart/form-data">
-                        {% csrf_token %}
-                        {{ formset.management_form }}
-                            {% for form in formset.forms %}
-                                {{ form.as_p}}
-                            {% endfor %}
-                        <button type="submit" class="btn btn-primary">Сохранить</button>
-                    </form>
+                        {% if table.client == current_user %}
+                            <form method="post" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                {{ formset.management_form }}
+                                        {{ formset.as_p}}
+                                <button type="submit" class="btn btn-primary">Сохранить</button>
+                            </form>
+                        {% else %}
+                            <h3>У вас нет текущего бронирования</h3>
+                        {% endif %}
                 </div>
             </div>
         </div>
