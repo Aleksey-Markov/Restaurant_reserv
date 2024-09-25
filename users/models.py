@@ -3,6 +3,9 @@ from django.contrib.auth.models import AbstractUser
 
 
 class User(AbstractUser):
+    """
+    модель клиента
+    """
     username = None
     email = models.EmailField(unique=True, verbose_name='Email')
     phone = models.CharField(max_length=12, verbose_name='Телефон клиента')

@@ -3,6 +3,9 @@ from django.utils import timezone
 
 
 def reserve_end():
+    """
+    проверяет время окончания брони и освобождает столик
+    """
     tables = Table.objects.filter(is_reserved=True)
 
     for table in tables:
@@ -14,7 +17,3 @@ def reserve_end():
             table.time_of_reserve = None
             table.time_end_reserve = None
             table.save()
-
-
-def get_tables():
-    return Table.objects.filter(user=self.request.user)

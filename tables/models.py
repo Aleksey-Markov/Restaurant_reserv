@@ -1,9 +1,13 @@
 from django.db import models
 from users.models import User
+
 NULLABLE = {"blank": True, "null": True}
 
 
 class Table(models.Model):
+    """
+    Модель столика
+    """
     table_num = models.PositiveIntegerField(
         verbose_name='Номер столика'
     )

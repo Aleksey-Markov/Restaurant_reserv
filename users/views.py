@@ -1,15 +1,18 @@
 from django.views.generic import CreateView, UpdateView
-from users.models import User
-from tables.models import Table
 from django.urls import reverse_lazy
 from users.forms import UserRegisterForm, UserProfileForm, TableForm
 from django.forms import inlineformset_factory
+
+from users.models import User
+from tables.models import Table
 
 
 class UserCreateView(CreateView):
     model = User
     form_class = UserRegisterForm
     success_url = reverse_lazy('users:login')
+
+
 
 
 class ProfileView(UpdateView):
